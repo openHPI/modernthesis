@@ -1,0 +1,38 @@
+%*******************************************************
+% List of Figures
+%*******************************************************    
+%\phantomsection 
+\refstepcounter{dummy}
+\addcontentsline{toc}{chapter}{\tocEntry{\listfigurename}}
+%\pdfbookmark[0]{\listfigurename}{toc}
+\listoffigures
+
+\newpage
+
+%*******************************************************
+% List of Tables
+%*******************************************************
+%\phantomsection 
+\refstepcounter{dummy}
+\addcontentsline{toc}{chapter}{\tocEntry{\listtablename}}
+%\pdfbookmark[0]{\listtablename}{toc}
+\listoftables
+    
+\newpage
+
+%*******************************************************
+% List of Listings
+%******************************************************* 
+
+\makeatletter
+\let\l@listing\l@figure
+\makeatother
+\renewcommand{\cftfigpresnum}{Listing }
+  
+%\phantomsection 
+\renewcommand\lstlistlistingname{List of Listings}
+\refstepcounter{dummy}
+\addcontentsline{toc}{chapter}{\tocEntry{\lstlistlistingname}}
+%\pdfbookmark[0]{\lstlistlistingname}{toc}
+\lstlistoflistings 
+

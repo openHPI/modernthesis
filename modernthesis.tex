@@ -1,0 +1,101 @@
+\documentclass[%twoside,
+	openright,
+	titlepage,
+	numbers=noenddot,
+	headinclude,
+	footinclude=true,
+	cleardoublepage=empty,
+	abstractoff,
+	BCOR=0mm, % change for print version
+	paper=a4,
+	fontsize=11pt,
+	ngerman,american,
+	english
+	]{scrreprt}
+
+%********************************************************************
+% Note: Make all your adjustments in here
+%*******************************************************
+\input{classicthesis-config}
+
+%********************************************************************
+% Bibliographies
+%*******************************************************
+\addbibresource{bibliography.bib}
+
+%********************************************************************
+% Hyphenation
+%*******************************************************
+%\hyphenation{put special hyphenation here}
+
+% ********************************************************************
+% GO!GO!GO! MOVE IT!
+%*******************************************************
+\begin{document}
+\frenchspacing
+\raggedbottom
+\selectlanguage{american} % american ngerman
+
+\newcounter{savepage}
+
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\usemintedstyle{\mintedstylefix}
+
+%********************************************************************
+% Frontmatter
+%*******************************************************
+\include{frontback/Titlepage}
+\include{frontback/Titleback}
+\cleardoublepage\include{frontback/Abstract}
+\cleardoublepage\include{frontback/Acknowledgments}
+\pagestyle{scrheadings}
+\cleardoublepage\include{frontback/Contents}
+\cleardoublepage\include{frontback/Acronyms}
+
+%********************************************************************
+% Mainmatter
+%*******************************************************
+\cleardoublepage
+\setcounter{savepage}{\arabic{page}}
+\pagenumbering{arabic}
+
+\cleardoublepage
+
+\include{chapters/Chapter_Introduction}
+\cleardoublepage
+
+\include{chapters/Chapter_Concept}
+\cleardoublepage
+
+\include{chapters/Chapter_Conclusion}
+\cleardoublepage
+
+
+% ********************************************************************
+% Backmatter
+%*******************************************************
+
+\appendix
+%\renewcommand{\thechapter}{\alph{chapter}}
+\cleardoublepage
+
+\include{chapters/Chapter_Appendix_A}
+\cleardoublepage
+
+
+%********************************************************************
+% Other Stuff in the Back
+%*******************************************************
+\pagenumbering{roman}
+\setcounter{page}{\thesavepage}
+\cleardoublepage\include{frontback/Bibliography}
+\cleardoublepage\include{frontback/ListOfFiguresTablesListings}
+\cleardoublepage\include{frontback/Declaration}
+
+% ********************************************************************
+% Game Over: Restore, Restart, or Quit?
+%*******************************************************
+\end{document}
+% ********************************************************************
